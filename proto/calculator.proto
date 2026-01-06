@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package calculator;
+
+service CalculatorService {
+  rpc Sum (NumberList) returns (CalcResult);
+  rpc Sub (NumberList) returns (CalcResult);
+  rpc Mul (NumberList) returns (CalcResult);
+  rpc Div (NumberList) returns (CalcResult);
+}
+
+message NumberList {
+  repeated double numbers = 1;
+}
+
+message CalcResult {
+  double result = 1;
+}

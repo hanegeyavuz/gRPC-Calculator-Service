@@ -1,0 +1,29 @@
+# Build artifacts
+/build/
+out/
+cmake-build-*/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Visual Studio
+.vs/
+*.vcxproj*
+*.sln
+*.user
+*.filters
+
+# Executables
+*.exe
+*.dll
+*.pdb
+
+# OS
+Thumbs.db
+.DS_Store
+
+# vcpkg
+vcpkg_installed/
