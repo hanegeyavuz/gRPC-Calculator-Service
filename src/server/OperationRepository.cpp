@@ -13,14 +13,14 @@ OperationRepository::OperationRepository(const std::string& connection_string)
 
 void OperationRepository::save_operation(
     const std::string& operation_type,
-    const std::vector<double>& numbers
+    const std::vector<double>& numbers, double result
 ) {
     try {
         pqxx::work txn(connection_);
 
         pqxx::result r = txn.exec_params(
-            "INSERT INTO operations (operation_type) VALUES ($1) RETURNING id",
-            operation_type
+            "INSERT INTO operations (operation_type,result) VALUES ($1, $2) RETURNING id",
+            operation_type,result
         );
 
         int operation_id = r[0][0].as<int>();

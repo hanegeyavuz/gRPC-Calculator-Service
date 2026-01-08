@@ -10,7 +10,7 @@ public:
 
     void save_operation(
         const std::string& operation_type,
-        const std::vector<double>& numbers
+        const std::vector<double>& numbers, double result
     );
 
 private:

@@ -25,14 +25,14 @@ public:
                const NumberList *request,
                CalcResult *response) override
     {
-        double sum = 0;
+        double result = 0;
         std::vector<double> numbers;
         for (double n : request->numbers()){
-            sum += n;
+            result += n;
             numbers.push_back(n);
         }
-        repo_.save_operation("sum",numbers);
-        response->set_result(sum);
+        repo_.save_operation("sum",numbers,result);
+        response->set_result(result);
         return Status::OK;
     }
 
@@ -51,7 +51,7 @@ public:
             result -= n;
             numbers.push_back(n);
         }
-        repo_.save_operation("sub",numbers);
+        repo_.save_operation("sub",numbers,result);
         response->set_result(result);
         return Status::OK;
     }
@@ -68,7 +68,7 @@ public:
             numbers.push_back(n);
         }
 
-        repo_.save_operation("mul", numbers);
+        repo_.save_operation("mul", numbers,result);
 
         response->set_result(result);
         return Status::OK;
@@ -94,7 +94,7 @@ public:
             result /= d;
             numbers.push_back(d);
         }
-        repo_.save_operation("div", numbers);
+        repo_.save_operation("div", numbers,result);
         response->set_result(result);
         return Status::OK;
     }
