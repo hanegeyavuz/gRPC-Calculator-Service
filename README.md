@@ -103,6 +103,8 @@ gRPC-Calculator-Service/
 * CMake ≥ 3.20
 * C++17 compatible compiler
 * vcpkg (recommended)
+  * Make sure to set the environment variable before building:
+    * `setx VCPKG_ROOT "<root>\vcpkg"`
 * gRPC & Protobuf 
 * Docker & Docker Compose
 ---
@@ -113,8 +115,10 @@ gRPC-Calculator-Service/
 git clone <repository-url>
 cd gRPC-Calculator-Service
 
+# Start PostgreSQL & pgAdmin via Docker
 docker compose up -d
 
+# Build the project
 cmake -B build -S .
 cmake --build build --config Release
 ```
