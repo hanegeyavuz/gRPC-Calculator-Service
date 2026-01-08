@@ -91,7 +91,7 @@ int main()
     std::cout << "Mul(2,3,4) = "
               << client.Mul({2, 3, 4}) << std::endl;
 
-    std::cout << "Div(100,2,5) = "
+    std::cout << "Div(-7,2,3,-2) = "
               << client.Div({-7, 2, 3, -2}) << std::endl;
 
     std::cout << "Div(10,0) = "
