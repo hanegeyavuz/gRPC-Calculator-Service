@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Protobuf CONFIG REQUIRED)
 find_package(gRPC CONFIG REQUIRED)
+find_package(libpqxx CONFIG REQUIRED)
 
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/generated
@@ -13,6 +14,7 @@ include_directories(
 
 add_executable(server
     src/server/server.cpp
+    src/server/OperationRepository.cpp
     generated/calculator.pb.cc
     generated/calculator.grpc.pb.cc
 )
@@ -26,6 +28,7 @@ add_executable(client
 target_link_libraries(server
     gRPC::grpc++
     protobuf::libprotobuf
+    libpqxx::pqxx
 )
 
 target_link_libraries(client
