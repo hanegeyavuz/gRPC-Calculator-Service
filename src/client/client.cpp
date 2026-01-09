@@ -80,7 +80,7 @@ int main()
     CalculatorClient client(
         grpc::CreateChannel("localhost:50051", grpc::InsecureChannelCredentials()));
 
-    std::cout << "-------------Ataves Santi gRPC Calculator Test-------------\n";
+    std::cout << "-------------gRPC Calculator Test-------------\n";
 
     std::cout << "Sum(1,2,3,4) = "
               << client.Sum({1, 2, 3, 4}) << std::endl;
